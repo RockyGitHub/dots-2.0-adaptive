@@ -1,3 +1,5 @@
+Fork of the original dots-2.0 from ikz87
+Trying to add in adaptive settings so that it works well for all screen sizes
 # dots-2.0
 
 ## An updated, revised version of my dotfiles 
