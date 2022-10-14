@@ -13,6 +13,10 @@ export BSPWM_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/bspwm"
 # to look good)
 bspc monitor -d 0 1 2 3 4 
 
+# System dependent values
+VertSolution=$(xdpyinfo | awk '/dimensions/ {print $2}' | cut -d "x" -f2)
+let TopPadding=($VertResolution*10)/154 # avoid floating point by x10
+
 # General bspwm config options
 bspc config border_width				5
 bspc config window_gap					20
@@ -27,7 +31,7 @@ bspc config right_monocle_padding       20
 bspc config bottom_monocle_padding      20 
 #bspc config ignore_ewmh_fullscreen      enter
 bspc config ignore_ewmh_struts          true
-bspc config top_padding                 70
+bspc config top_padding                 $TopPadding
 
 # Window rules
 bspc rule --add Blueman-manager             state=floating rectangle=610x610+650+235
